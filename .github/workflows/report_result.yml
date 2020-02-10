@@ -13,3 +13,6 @@ jobs:
         with:
           node-version: 12.x
       - run: echo ${{ github.event }}
+      - name: Run zbctl
+        run: |
+          docker run  --env ZEEBE_ADDRESS='{{ $env.ZEEBE_ADDRESS}}' --env ZEEBE_CLIENT_ID='${{ env.ZEEBE_CLIENT_ID }}' --env ZEEBE_CLIENT_SECRET='${{ env.ZEEBE_CLIENT_SECRET }}' --env ZEEBE_AUTHORIZATION_SERVER_URL='${{ env.ZEEBE_AUTHORIZATION_SERVER_URL }}' sitapati/zbctl status
