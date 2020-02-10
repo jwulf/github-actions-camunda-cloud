@@ -16,11 +16,12 @@ jobs:
       - name: Run zbctl
         run: |
           docker run  --env ZEEBE_ADDRESS='${{ secrets.ZEEBE_ADDRESS }}' --env ZEEBE_CLIENT_ID='${{ secrets.ZEEBE_CLIENT_ID }}' --env ZEEBE_CLIENT_SECRET='${{ secrets.ZEEBE_CLIENT_SECRET }}' --env ZEEBE_AUTHORIZATION_SERVER_URL='${{ secrets.ZEEBE_AUTHORIZATION_SERVER_URL }}' sitapati/zbctl status
-      - uses: jwulf/zeebe-action@master
+      - name: Create Zeebe Workflow
+        uses: jwulf/zeebe-action@master
         with:
           zeebe_address: ${{ secrets.ZEEBE_ADDRESS }}
           zeebe_client_id: ${{ secrets.ZEEBE_CLIENT_ID }}
           zeebe_authorization_server_url: ${{ secrets.ZEEBE_AUTHORIZATION_SERVER_URL }}
           zeebe_client_secret: ${{ secrets.ZEEBE_CLIENT_SECRET }}
           operation: createWorkflowInstance
-          bpmnProcessId: test-webhook
+          bpmnProcessId: throw-test
