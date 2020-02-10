@@ -15,4 +15,4 @@ jobs:
       - run: echo ${{ github.event }}
       - name: Run zbctl
         run: |
-          docker run  --env ZEEBE_ADDRESS='{{ $env.ZEEBE_ADDRESS}}' --env ZEEBE_CLIENT_ID='${{ env.ZEEBE_CLIENT_ID }}' --env ZEEBE_CLIENT_SECRET='${{ env.ZEEBE_CLIENT_SECRET }}' --env ZEEBE_AUTHORIZATION_SERVER_URL='${{ env.ZEEBE_AUTHORIZATION_SERVER_URL }}' sitapati/zbctl status
+          docker run  --env ZEEBE_ADDRESS='{{ $secrets.ZEEBE_ADDRESS }}' --env ZEEBE_CLIENT_ID='${{ secrets.ZEEBE_CLIENT_ID }}' --env ZEEBE_CLIENT_SECRET='${{ secrets.ZEEBE_CLIENT_SECRET }}' --env ZEEBE_AUTHORIZATION_SERVER_URL='${{ secrets.ZEEBE_AUTHORIZATION_SERVER_URL }}' sitapati/zbctl status
