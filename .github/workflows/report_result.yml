@@ -24,4 +24,4 @@ jobs:
           zeebe_authorization_server_url: ${{ secrets.ZEEBE_AUTHORIZATION_SERVER_URL }}
           zeebe_client_secret: ${{ secrets.ZEEBE_CLIENT_SECRET }}
           operation: createWorkflowInstance
-          bpmnProcessId: throw-test
+          bpmn_process_id: throw-test
