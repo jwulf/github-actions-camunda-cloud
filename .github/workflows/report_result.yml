@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: echo ${{ github.event }}
+      - run: echo ${{ github.event.action }}
       - name: Run zbctl
         run: |
           docker run  --env ZEEBE_ADDRESS='${{ secrets.ZEEBE_ADDRESS }}' --env ZEEBE_CLIENT_ID='${{ secrets.ZEEBE_CLIENT_ID }}' --env ZEEBE_CLIENT_SECRET='${{ secrets.ZEEBE_CLIENT_SECRET }}' --env ZEEBE_AUTHORIZATION_SERVER_URL='${{ secrets.ZEEBE_AUTHORIZATION_SERVER_URL }}' sitapati/zbctl status
